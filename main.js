@@ -39,8 +39,19 @@ function newCanvas() {
 
 
     ctx.beginPath();
-    ctx.moveTo(random(0, width), (0, height));
-    ctx.moveTo(random(0, width), (0, height));
+    ctx.moveTo(random(0, width), random(0, height));
+    ctx.lineTo(random(0, width), random(0, height));
+    ctx.lineTo(random(0, width), random(0, height));
+    ctx.closePath();
+    ctx.strokeStyle = randomColor();
+    ctx.lineWidth = random(2, 7);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(random(40, width - 40 ), random(40, height - 40), random(10, 40), 0, Math.PI * 2);
+    ctx.strokeStyle = randomColor();
+    ctx.lineWidth = random(2, 7);
+    ctx.stroke();
     }
    
 
