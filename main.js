@@ -19,13 +19,28 @@ function newCanvas() {
 
     const ctx = canvas.getContext('2d');
     // rectangle
-    for (let i = 0, i < 3, i++) {
-        const size = random(20, 70);
-    const x = random(40, width - 40);
-    const y = random(40, height - 40);
+    for (let i = 0; i < 3; i++ ) {
+    const size = random(20, 70);
+    const x = random(40, width - 40) - size / 2;
+    const y = random(40, height - 40) - size / 2;
     ctx.strokeStyle = randomColor();
     ctx.lineWidth = random(2, 7);
+    
+    ctx.save();
+    ctx.translate(width / 2, height / 2);
+    ctx.rotate(random(0, Math.PI * 0.5));
+    ctx.translate(width / -2, height / - 2);
+    
+
+
     ctx.strokeRect(x, y, size, size);
+
+    ctx.restore();
+
+
+    ctx.beginPath();
+    ctx.moveTo(random(0, width), (0, height));
+    ctx.moveTo(random(0, width), (0, height));
     }
    
 
@@ -54,5 +69,5 @@ function random (min, max) {
 }
 
 function randomColor() {
-    return `hsla(${random(0, 360)} 100% 755% / 0.75)`;
+    return `hsla(${random(0, 360)} 100% 75% / 0.75)`;
 }
