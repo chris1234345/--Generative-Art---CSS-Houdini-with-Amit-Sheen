@@ -1,9 +1,24 @@
 const body = document.querySelector('body');
 const buttonCanvas = document.querySelector('.canvas-btn');
+const buttonHoudini = document.querySelector('.houdini-btn');
+
 
 
 buttonCanvas.addEventListener('click', newCanvas);
+buttonHoudini.addEventListener('click', newHoudini);
 
+
+function newHoudini() {
+const div = document.createElement('div');
+div.classList = 'houdini';
+div.style.top = random(0, window.innerHeight - 250 )  + 'px';
+div.style.left = random(0, window.innerWidth - 250 )  + 'px';
+div.innerText = `houdini!`;
+body.appendChild(div);
+setTimeout(() =>{
+    body.removeChild(div)
+}, 3000)
+};
 
 function newCanvas() {
 
@@ -82,3 +97,10 @@ function random (min, max) {
 function randomColor() {
     return `hsla(${random(0, 360)} 100% 75% / 0.75)`;
 }
+
+(async ()=> {
+CSS.paintWorklet.addModule('worklet.js');
+})();
+
+
+
