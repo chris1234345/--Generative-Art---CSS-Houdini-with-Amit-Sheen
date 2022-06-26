@@ -7,7 +7,7 @@ registerPaint('foo', class {
         const {width, height} = size;
         const count = props.get('count');
         
-        for (let i = 0; i < 3; i++ ) {
+        for (let i = 0; i < count; i++ ) {
             const size = random(20, 70);
             const x = random(40, width - 40) - size / 2;
             const y = random(40, height - 40) - size / 2;
